@@ -1,0 +1,1531 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StudyUp | Saúde &amp; Bem-Estar Estudante</title>
+
+    <style>
+        /* =========================
+           CONFIGURAÇÕES GERAIS
+        ========================= */
+
+        :root {
+            --azul: #3f64d9;
+            --azul-escuro: #18284d;
+            --lilas: #7157df;
+            --verde: #42b7a5;
+            --verde-escuro: #268d7e;
+
+            --verde-claro: #e8f7f3;
+            --azul-claro: #edf3ff;
+            --lilas-claro: #f1efff;
+
+            --fundo: #f7f9fc;
+            --cinza: #69758a;
+            --borda: #e4e9f1;
+            --branco: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: var(--fundo);
+            color: #25324a;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           CABEÇALHO
+        ========================= */
+
+        header {
+            background-color: rgba(255, 255, 255, 0.97);
+            border-bottom: 1px solid var(--borda);
+
+            position: sticky;
+            top: 0;
+
+            z-index: 1000;
+        }
+
+        .menu {
+            width: 100%;
+            max-width: 1180px;
+            min-height: 88px;
+
+            margin: 0 auto;
+            padding: 10px 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 35px;
+        }
+
+        /* NOVA LOGO */
+
+        .marca {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .link-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-studyup {
+            display: block;
+
+            width: 235px;
+            height: auto;
+
+            object-fit: contain;
+        }
+
+        /* MENU DE NAVEGAÇÃO */
+
+        nav {
+            display: flex;
+            align-items: center;
+
+            gap: 25px;
+        }
+
+        nav a {
+            color: var(--azul-escuro);
+
+            text-decoration: none;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            transition: 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--lilas);
+        }
+
+        /* =========================
+           INÍCIO
+        ========================= */
+
+        .hero {
+            min-height: 620px;
+
+            display: flex;
+            align-items: center;
+
+            background:
+                radial-gradient(
+                    circle at 85% 20%,
+                    #ebe7ff 0%,
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 10% 80%,
+                    #e1f7f2 0%,
+                    transparent 24%
+                ),
+                linear-gradient(
+                    135deg,
+                    #ffffff,
+                    #f6f8ff
+                );
+        }
+
+        .hero-container {
+            width: 100%;
+            max-width: 1180px;
+
+            margin: 0 auto;
+            padding: 70px 25px;
+
+            display: grid;
+
+            grid-template-columns: 1.1fr 0.9fr;
+
+            align-items: center;
+
+            gap: 70px;
+        }
+
+        .selo {
+            display: inline-block;
+
+            background-color: var(--verde-claro);
+
+            color: var(--verde-escuro);
+
+            padding: 8px 16px;
+
+            border-radius: 30px;
+
+            font-size: 13px;
+            font-weight: bold;
+
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            max-width: 650px;
+
+            color: var(--azul-escuro);
+
+            font-size: 62px;
+            line-height: 1.05;
+
+            margin-bottom: 22px;
+        }
+
+        .destaque {
+            color: var(--lilas);
+        }
+
+        .hero-texto {
+            max-width: 650px;
+
+            color: var(--cinza);
+
+            font-size: 18px;
+
+            margin-bottom: 30px;
+        }
+
+        /* BOTÕES */
+
+        .botao {
+            display: inline-block;
+
+            padding: 15px 26px;
+
+            color: #ffffff;
+
+            text-decoration: none;
+            font-weight: bold;
+
+            background: linear-gradient(
+                90deg,
+                var(--azul),
+                var(--lilas)
+            );
+
+            border-radius: 12px;
+
+            transition: 0.2s;
+        }
+
+        .botao:hover {
+            transform: translateY(-2px);
+
+            box-shadow: 0 10px 25px rgba(63, 100, 217, 0.2);
+        }
+
+        /* =========================
+           VISUAL DO FUTURO APP
+        ========================= */
+
+        .celular {
+            width: 300px;
+
+            margin: 0 auto;
+
+            background-color: #ffffff;
+
+            border: 8px solid #283754;
+
+            border-radius: 40px;
+
+            padding: 42px 20px 25px;
+
+            position: relative;
+
+            box-shadow: 0 30px 60px rgba(36, 50, 80, 0.17);
+        }
+
+        .celular::before {
+            content: "";
+
+            position: absolute;
+
+            top: 14px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            width: 80px;
+            height: 6px;
+
+            background-color: #283754;
+
+            border-radius: 10px;
+        }
+
+        .celular h3 {
+            color: var(--azul-escuro);
+
+            font-size: 22px;
+        }
+
+        .celular-subtitulo {
+            color: var(--cinza);
+
+            font-size: 12px;
+
+            margin-bottom: 20px;
+        }
+
+        .mini-card {
+            padding: 17px;
+
+            border-radius: 15px;
+
+            margin-bottom: 12px;
+
+            font-weight: bold;
+        }
+
+        .mini-card small {
+            color: var(--cinza);
+
+            font-weight: normal;
+        }
+
+        .sono {
+            background-color: var(--verde-claro);
+        }
+
+        .bem-estar {
+            background-color: var(--lilas-claro);
+        }
+
+        .estudos {
+            background-color: var(--azul-claro);
+        }
+
+        /* =========================
+           SEÇÕES
+        ========================= */
+
+        section {
+            padding: 90px 25px;
+        }
+
+        .container {
+            max-width: 1180px;
+
+            margin: 0 auto;
+        }
+
+        .cabecalho-secao {
+            max-width: 750px;
+
+            margin: 0 auto 50px;
+
+            text-align: center;
+        }
+
+        .subtitulo {
+            color: var(--verde-escuro);
+
+            font-size: 13px;
+            font-weight: bold;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+        }
+
+        .cabecalho-secao h2 {
+            color: var(--azul-escuro);
+
+            font-size: 37px;
+
+            margin: 8px 0 12px;
+        }
+
+        .cabecalho-secao p {
+            color: var(--cinza);
+        }
+
+        /* =========================
+           EIXOS
+        ========================= */
+
+        .eixos {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .eixo {
+            background-color: #ffffff;
+
+            border: 1px solid var(--borda);
+
+            border-radius: 22px;
+
+            padding: 32px;
+
+            transition: 0.25s;
+        }
+
+        .eixo:hover {
+            transform: translateY(-6px);
+
+            box-shadow: 0 20px 45px rgba(39, 57, 96, 0.1);
+        }
+
+        .icone {
+            width: 60px;
+            height: 60px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 18px;
+
+            font-size: 27px;
+
+            margin-bottom: 20px;
+        }
+
+        .icone-verde {
+            background-color: var(--verde-claro);
+        }
+
+        .icone-lilas {
+            background-color: var(--lilas-claro);
+        }
+
+        .icone-azul {
+            background-color: var(--azul-claro);
+        }
+
+        .eixo small {
+            color: var(--cinza);
+
+            font-weight: bold;
+        }
+
+        .eixo h3 {
+            color: var(--azul-escuro);
+
+            font-size: 23px;
+
+            margin: 5px 0 13px;
+        }
+
+        .eixo p {
+            color: var(--cinza);
+
+            font-size: 15px;
+
+            margin-bottom: 20px;
+        }
+
+        .eixo ul {
+            list-style: none;
+        }
+
+        .eixo li {
+            margin-bottom: 9px;
+
+            font-size: 14px;
+        }
+
+        .eixo li::before {
+            content: "✓";
+
+            color: var(--verde);
+
+            font-weight: bold;
+
+            margin-right: 8px;
+        }
+
+        /* =========================
+           CHECK-UP DIGITAL
+        ========================= */
+
+        .checkup {
+            background-color: #ffffff;
+        }
+
+        .perguntas {
+            max-width: 820px;
+
+            margin: 0 auto;
+        }
+
+        .pergunta {
+            background-color: #f8fafc;
+
+            border: 1px solid var(--borda);
+
+            border-radius: 17px;
+
+            padding: 22px;
+
+            margin-bottom: 16px;
+        }
+
+        .pergunta h3 {
+            color: var(--azul-escuro);
+
+            font-size: 16px;
+
+            margin-bottom: 15px;
+        }
+
+        .opcoes {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+        }
+
+        .opcoes label {
+            background-color: #ffffff;
+
+            border: 1px solid #dfe4ed;
+
+            padding: 10px 14px;
+
+            border-radius: 10px;
+
+            cursor: pointer;
+
+            font-size: 14px;
+
+            transition: 0.2s;
+        }
+
+        .opcoes label:hover {
+            border-color: var(--azul);
+
+            background-color: var(--azul-claro);
+        }
+
+        .opcoes input {
+            margin-right: 5px;
+        }
+
+        /* =========================
+           PESQUISA
+        ========================= */
+
+        .dados {
+            color: #ffffff;
+
+            background: linear-gradient(
+                135deg,
+                #253c78,
+                #604cd1
+            );
+        }
+
+        .dados .cabecalho-secao h2 {
+            color: #ffffff;
+        }
+
+        .dados .cabecalho-secao p {
+            color: #edf0ff;
+        }
+
+        .dados .subtitulo {
+            color: #bcece4;
+        }
+
+        .numeros {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .numero {
+            background-color: rgba(255, 255, 255, 0.1);
+
+            border: 1px solid rgba(255, 255, 255, 0.2);
+
+            border-radius: 20px;
+
+            padding: 35px 25px;
+
+            text-align: center;
+        }
+
+        .numero strong {
+            display: block;
+
+            font-size: 48px;
+
+            margin-bottom: 10px;
+        }
+
+        .numero p {
+            color: #edf0ff;
+
+            font-size: 15px;
+        }
+
+        /* =========================
+           DICAS
+        ========================= */
+
+        .dicas {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 20px;
+        }
+
+        .dica {
+            background-color: #ffffff;
+
+            border: 1px solid var(--borda);
+
+            border-radius: 18px;
+
+            padding: 25px;
+        }
+
+        .emoji {
+            font-size: 30px;
+        }
+
+        .dica h3 {
+            color: var(--azul-escuro);
+
+            margin: 10px 0 8px;
+        }
+
+        .dica p {
+            color: var(--cinza);
+
+            font-size: 14px;
+        }
+
+        /* =========================
+           CHAMADA FINAL
+        ========================= */
+
+        .cta {
+            max-width: 1000px;
+
+            margin: 80px auto;
+
+            padding: 55px 30px;
+
+            text-align: center;
+
+            border-radius: 28px;
+
+            background: linear-gradient(
+                135deg,
+                var(--verde-claro),
+                var(--azul-claro)
+            );
+        }
+
+        .cta h2 {
+            color: var(--azul-escuro);
+
+            font-size: 34px;
+
+            margin-bottom: 12px;
+        }
+
+        .cta p {
+            max-width: 650px;
+
+            margin: 0 auto 25px;
+
+            color: var(--cinza);
+        }
+
+        /* =========================
+           RODAPÉ
+        ========================= */
+
+        footer {
+            background-color: #172440;
+
+            color: #ffffff;
+
+            padding: 45px 25px;
+
+            text-align: center;
+        }
+
+        .logo-rodape {
+            display: block;
+
+            width: 230px;
+            max-width: 90%;
+
+            height: auto;
+
+            margin: 0 auto 18px;
+        }
+
+        footer p {
+            color: #b8c2d5;
+
+            font-size: 13px;
+
+            margin-top: 5px;
+        }
+
+        /* =========================
+           RESPONSIVIDADE
+        ========================= */
+
+        @media (max-width: 850px) {
+
+            .menu {
+                min-height: 76px;
+            }
+
+            .logo-studyup {
+                width: 195px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero-texto {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .celular {
+                margin-top: 25px;
+            }
+
+            .eixos {
+                grid-template-columns: 1fr;
+            }
+
+            .numeros {
+                grid-template-columns: 1fr;
+            }
+
+            .dicas {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 520px) {
+
+            .menu {
+                padding: 10px 18px;
+            }
+
+            .logo-studyup {
+                width: 165px;
+            }
+
+            section {
+                padding: 60px 18px;
+            }
+
+            .hero-container {
+                padding: 55px 20px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero-texto {
+                font-size: 16px;
+            }
+
+            .cabecalho-secao h2 {
+                font-size: 29px;
+            }
+
+            .dicas {
+                grid-template-columns: 1fr;
+            }
+
+            .celular {
+                width: 100%;
+                max-width: 290px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+<!-- CABEÇALHO -->
+
+<header>
+
+    <div class="menu">
+
+        <div class="marca">
+
+            <a href="#inicio" class="link-logo">
+
+                <img
+                    src="logo-studyup.png"
+                    alt="StudyUp - Saúde e Bem-Estar Estudante"
+                    class="logo-studyup"
+                >
+
+            </a>
+
+        </div>
+
+
+        <nav>
+
+            <a href="#inicio">
+                Início
+            </a>
+
+            <a href="#saude">
+                Sua Saúde
+            </a>
+
+            <a href="#checkup">
+                Check-up Digital
+            </a>
+
+            <a href="#pesquisa">
+                Pesquisa
+            </a>
+
+            <a href="#dicas">
+                Dicas
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<main>
+
+<!-- INÍCIO -->
+
+<section class="hero" id="inicio">
+
+    <div class="hero-container">
+
+        <div>
+
+            <span class="selo">
+                Tecnologia + Saúde + Equilíbrio
+            </span>
+
+            <h1>
+                Sua vida está em
+                <span class="destaque">
+                    equilíbrio?
+                </span>
+            </h1>
+
+            <p class="hero-texto">
+
+                A tecnologia faz parte da nossa vida.
+
+                Mas você já parou para pensar em como seus
+                hábitos digitais podem influenciar seu sono,
+                seu corpo, suas emoções, suas relações
+                e seus estudos?
+
+            </p>
+
+            <a href="#checkup" class="botao">
+                Fazer meu check-up digital
+            </a>
+
+        </div>
+
+
+        <!-- SIMULAÇÃO DO APP -->
+
+        <div class="celular">
+
+            <h3>
+                Olá! 👋
+            </h3>
+
+            <p class="celular-subtitulo">
+                Como está seu equilíbrio digital hoje?
+            </p>
+
+            <div class="mini-card sono">
+
+                😴 Sono
+
+                <br>
+
+                <small>
+                    Você dormiu bem?
+                </small>
+
+            </div>
+
+
+            <div class="mini-card bem-estar">
+
+                🧠 Bem-estar
+
+                <br>
+
+                <small>
+                    Como você está se sentindo?
+                </small>
+
+            </div>
+
+
+            <div class="mini-card estudos">
+
+                📚 Estudos
+
+                <br>
+
+                <small>
+                    Conseguiu manter o foco?
+                </small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SAÚDE -->
+
+<section id="saude">
+
+    <div class="container">
+
+        <div class="cabecalho-secao">
+
+            <span class="subtitulo">
+                Conheça seus hábitos
+            </span>
+
+            <h2>
+                Como a tecnologia pode afetar você?
+            </h2>
+
+            <p>
+
+                O objetivo não é abandonar a tecnologia.
+
+                É aprender a utilizá-la de maneira
+                mais consciente e equilibrada.
+
+            </p>
+
+        </div>
+
+
+        <div class="eixos">
+
+            <!-- EIXO 1 -->
+
+            <article class="eixo">
+
+                <div class="icone icone-verde">
+                    🩺
+                </div>
+
+                <small>
+                    EIXO 01
+                </small>
+
+                <h3>
+                    Corpo &amp; Saúde Física
+                </h3>
+
+                <p>
+
+                    Muito tempo conectado também pode
+                    interferir nos hábitos e no bem-estar
+                    do nosso corpo.
+
+                </p>
+
+                <ul>
+
+                    <li>
+                        Sono
+                    </li>
+
+                    <li>
+                        Postura e saúde física
+                    </li>
+
+                    <li>
+                        Alimentação
+                    </li>
+
+                    <li>
+                        Movimento e sedentarismo
+                    </li>
+
+                </ul>
+
+            </article>
+
+
+            <!-- EIXO 2 -->
+
+            <article class="eixo">
+
+                <div class="icone icone-lilas">
+                    🧠
+                </div>
+
+                <small>
+                    EIXO 02
+                </small>
+
+                <h3>
+                    Bem-Estar Psicossocial
+                </h3>
+
+                <p>
+
+                    A forma como utilizamos as redes
+                    também pode influenciar nossas
+                    emoções e relacionamentos.
+
+                </p>
+
+                <ul>
+
+                    <li>
+                        Saúde mental e emocional
+                    </li>
+
+                    <li>
+                        Autoestima e autoimagem
+                    </li>
+
+                    <li>
+                        Sociabilidade
+                    </li>
+
+                    <li>
+                        Relação com as redes sociais
+                    </li>
+
+                </ul>
+
+            </article>
+
+
+            <!-- EIXO 3 -->
+
+            <article class="eixo">
+
+                <div class="icone icone-azul">
+                    📚
+                </div>
+
+                <small>
+                    EIXO 03
+                </small>
+
+                <h3>
+                    Desempenho Escolar
+                </h3>
+
+                <p>
+
+                    Notificações, distrações e excesso
+                    de tempo online podem competir
+                    com o tempo dedicado aos estudos
+                    e ao descanso.
+
+                </p>
+
+                <ul>
+
+                    <li>
+                        Foco e concentração
+                    </li>
+
+                    <li>
+                        Procrastinação
+                    </li>
+
+                    <li>
+                        Organização do tempo
+                    </li>
+
+                    <li>
+                        Rotina de estudos
+                    </li>
+
+                </ul>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CHECK-UP -->
+
+<section class="checkup" id="checkup">
+
+    <div class="container">
+
+        <div class="cabecalho-secao">
+
+            <span class="subtitulo">
+                Check-up Digital
+            </span>
+
+            <h2>
+                E com você?
+            </h2>
+
+            <p>
+
+                Responda algumas perguntas rápidas
+                sobre seus hábitos digitais.
+
+                Não existem respostas certas ou erradas.
+
+            </p>
+
+        </div>
+
+
+        <div class="perguntas">
+
+            <div class="pergunta">
+
+                <h3>
+                    1. Você costuma usar o celular antes de dormir?
+                </h3>
+
+                <div class="opcoes">
+
+                    <label>
+                        <input type="radio" name="pergunta1">
+                        Nunca
+                    </label>
+
+                    <label>
+                        <input type="radio" name="pergunta1">
+                        Às vezes
+                    </label>
+
+                    <label>
+                        <input type="radio" name="pergunta1">
+                        Muitas vezes
+                    </label>
+
+                    <label>
+                        <input type="radio" name="pergunta1">
+                        Quase sempre
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <div class="pergunta">
+
+                <h3>
+                    2. Você pega o celular enquanto está estudando?
+                </h3>
+
+                <div class="opcoes">
+
+                    <label>
+                        <input type="radio" name="pergunta2">
+                        Nunca
+                    </label>
+
+                    <label>
+                        <input type="radio" name="pergunta2">
+                        Às vezes
+                    </label>
+
+                    <label>
+                        <input type="radio" name="pergunta2">
+                        Muitas vezes
+                    </label>
+
+                    <label>
+                        <input type="radio" name="pergunta2">
+                        Quase sempre
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <div class="pergunta">
+
+                <h3>
+                    3. Quando está triste ou ansioso,
+                    você procura as redes sociais?
+                </h3>
+
+                <div class="opcoes">
+
+                    <label>
+                        <input type="radio" name="pergunta3">
+                        Nunca
+                    </label>
+
+                    <label>
+                        <input type="radio" name="pergunta3">
+                        Às vezes
+                    </label>
+
+                    <label>
+                        <input type="radio" name="pergunta3">
+                        Muitas vezes
+                    </label>
+
+                    <label>
+                        <input type="radio" name="pergunta3">
+                        Quase sempre
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <div class="pergunta">
+
+                <h3>
+                    4. Você já ficou mais tempo
+                    no celular do que pretendia?
+                </h3>
+
+                <div class="opcoes">
+
+                    <label>
+                        <input type="radio" name="pergunta4">
+                        Nunca
+                    </label>
+
+                    <label>
+                        <input type="radio" name="pergunta4">
+                        Às vezes
+                    </label>
+
+                    <label>
+                        <input type="radio" name="pergunta4">
+                        Muitas vezes
+                    </label>
+
+                    <label>
+                        <input type="radio" name="pergunta4">
+                        Quase sempre
+                    </label>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PESQUISA -->
+
+<section class="dados" id="pesquisa">
+
+    <div class="container">
+
+        <div class="cabecalho-secao">
+
+            <span class="subtitulo">
+                Nossa pesquisa
+            </span>
+
+            <h2>
+                O que os estudantes disseram?
+            </h2>
+
+            <p>
+                Alguns resultados obtidos no questionário
+                realizado com estudantes.
+            </p>
+
+        </div>
+
+
+        <div class="numeros">
+
+            <div class="numero">
+
+                <strong>
+                    84%
+                </strong>
+
+                <p>
+                    relataram usar o celular antes de dormir.
+                </p>
+
+            </div>
+
+
+            <div class="numero">
+
+                <strong>
+                    70,4%
+                </strong>
+
+                <p>
+                    percebem que o celular afeta seus estudos.
+                </p>
+
+            </div>
+
+
+            <div class="numero">
+
+                <strong>
+                    84%
+                </strong>
+
+                <p>
+
+                    já deixaram de descansar, dormir
+                    ou estudar por permanecer mais tempo
+                    no celular do que pretendiam.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- DICAS -->
+
+<section id="dicas">
+
+    <div class="container">
+
+        <div class="cabecalho-secao">
+
+            <span class="subtitulo">
+                Pequenas mudanças
+            </span>
+
+            <h2>
+                Que tal começar hoje?
+            </h2>
+
+            <p>
+
+                Você não precisa abandonar a tecnologia.
+
+                Pequenas escolhas podem ajudar
+                a construir uma relação mais saudável
+                e equilibrada com ela.
+
+            </p>
+
+        </div>
+
+
+        <div class="dicas">
+
+            <div class="dica">
+
+                <span class="emoji">
+                    🌙
+                </span>
+
+                <h3>
+                    Prepare-se para dormir
+                </h3>
+
+                <p>
+
+                    Experimente reduzir o uso de telas
+                    próximo ao horário de dormir.
+
+                </p>
+
+            </div>
+
+
+            <div class="dica">
+
+                <span class="emoji">
+                    🔕
+                </span>
+
+                <h3>
+                    Silencie distrações
+                </h3>
+
+                <p>
+
+                    Durante os estudos, desative
+                    notificações que não são importantes.
+
+                </p>
+
+            </div>
+
+
+            <div class="dica">
+
+                <span class="emoji">
+                    🚶
+                </span>
+
+                <h3>
+                    Faça pausas
+                </h3>
+
+                <p>
+
+                    Levante, movimente o corpo
+                    e passe alguns minutos longe das telas.
+
+                </p>
+
+            </div>
+
+
+            <div class="dica">
+
+                <span class="emoji">
+                    💬
+                </span>
+
+                <h3>
+                    Esteja presente
+                </h3>
+
+                <p>
+
+                    Reserve momentos para conversar
+                    e conviver sem precisar olhar
+                    para o celular.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CHAMADA FINAL -->
+
+<div class="cta">
+
+    <h2>
+        Tecnologia faz parte da vida.
+        Equilíbrio também.
+    </h2>
+
+    <p>
+
+        Conhecer seus próprios hábitos é o primeiro passo
+        para fazer escolhas mais conscientes para sua saúde,
+        seu bem-estar e seus estudos.
+
+    </p>
+
+    <a href="#checkup" class="botao">
+        Avaliar meus hábitos
+    </a>
+
+</div>
+
+</main>
+
+
+<!-- RODAPÉ -->
+
+<footer>
+
+    <img
+        src="logo-studyup.png"
+        alt="StudyUp - Saúde e Bem-Estar Estudante"
+        class="logo-rodape"
+    >
+
+    <p>
+        Informação para uma relação mais consciente
+        e equilibrada com a tecnologia.
+    </p>
+
+</footer>
+
+</body>
+
+</html>
